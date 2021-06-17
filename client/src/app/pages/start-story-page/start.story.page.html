@@ -1,0 +1,30 @@
+<app-navbar [pageName]="'Story Details'"></app-navbar>
+<ion-content>
+  <div>
+    <form>
+      <ion-item>
+        <ion-label>Title</ion-label>
+        <ion-input type="text" [(ngModel)]="story.title" name="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-input type="text" [(ngModel)]="story.description" name="description"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Genre</ion-label>
+        <ion-select interface="popover"
+                    [(ngModel)]="story.genre"
+                    name="genre">
+          <ion-select-option *ngFor="let option of GENRES"
+                             [value]="option">
+            {{option}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </form>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" color="thistle" (click)="saveStory()">Save</ion-button>
+  <ion-button expand="block" color="lavender" (click)="goToList()">Back to stories</ion-button>
+</ion-footer>

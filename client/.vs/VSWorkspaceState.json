@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\models",
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\login",
+    "\\src\\app\\pages\\start-story-page",
+    "\\src\\app\\pages\\stories",
+    "\\src\\app\\pages\\view-story-page",
+    "\\src\\assets"
+  ],
+  "SelectedNode": "\\src\\app\\models\\story.model.ts",
+  "PreviewInSolutionExplorer": false
+}

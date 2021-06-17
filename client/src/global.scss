@@ -1,0 +1,60 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+:root {
+  --ion-color-lavender: #b4b8cf;
+  --ion-color-lavender-rgb: 180,184,207;
+  --ion-color-lavender-contrast: #000000;
+  --ion-color-lavender-contrast-rgb: 0,0,0;
+  --ion-color-lavender-shade: #9ea2b6;
+  --ion-color-lavender-tint: #bcbfd4;
+  --ion-color-thistle: #9079C9;
+  --ion-color-thistle-rgb: 144,121,201;
+  --ion-color-thistle-contrast: #ffffff;
+  --ion-color-thistle-contrast-rgb: 255,255,255;
+  --ion-color-thistle-shade: #7f6ab1;
+  --ion-color-thistle-tint: #9b86ce;
+}
+
+.ion-color-lavender {
+  --ion-color-base: var(--ion-color-lavender);
+  --ion-color-base-rgb: var(--ion-color-lavender-rgb);
+  --ion-color-contrast: var(--ion-color-lavender-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-lavender-contrast-rgb);
+  --ion-color-shade: var(--ion-color-lavender-shade);
+  --ion-color-tint: var(--ion-color-lavender-tint);
+}
+
+.ion-color-thistle {
+  --ion-color-base: var(--ion-color-thistle);
+  --ion-color-base-rgb: var(--ion-color-thistle-rgb);
+  --ion-color-contrast: var(--ion-color-thistle-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-thistle-contrast-rgb);
+  --ion-color-shade: var(--ion-color-thistle-shade);
+  --ion-color-tint: var(--ion-color-thistle-tint);
+}
+
