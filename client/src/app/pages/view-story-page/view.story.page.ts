@@ -24,6 +24,8 @@ export class ViewStoryPage {
   newFragment = new Fragment();
   @Input() story: Story;
   fragments: PaginatedFragments;
+  currentFragmentsPage: number;
+  currentCommentsPage: number;
 
   constructor(
     private apiSvc: ApiService,
@@ -63,7 +65,8 @@ export class ViewStoryPage {
           this.story = storyData.story;
           this.comments = storyData.comments;
           this.fragments = storyData.fragments;
-          console.log(storyData);
+          this.currentFragmentsPage = 1;
+          this.currentCommentsPage = 1;
           this.storyDataLoaded = true;
           this.cd.detectChanges();
         },
@@ -71,6 +74,22 @@ export class ViewStoryPage {
           console.log(err);
         }
     );
+  }
+
+  loadFragments(page: number = 1) {
+    this.apiSvc.get('api/Stories/' + this.story.id + '/Fragments', { 'page': page }).subscribe((response: PaginatedFragments) => {
+      this.fragments = response;
+      this.currentFragmentsPage = page;
+      this.cd.detectChanges();
+    });
+  }
+
+  loadComments(page: number = 1) {
+    this.apiSvc.get('api/Stories/' + this.story.id + '/Comments', { 'page': page }).subscribe((response: PaginatedFragments) => {
+      this.comments = response;
+      this.currentCommentsPage = page;
+      this.cd.detectChanges();
+    });
   }
 
   saveComment() {

@@ -24,6 +24,38 @@
               <ion-icon color="danger" name="trash-outline" (click)="deleteFragment(fragment.id)"></ion-icon>
             </ion-col>
           </ion-row>
+
+          <nav>
+            <ul class="pagination">
+              <li class="page-item" *ngFor="let f of fragments.firstPages">
+                <a [routerLink]="" class="page-link" (click)="loadFragments(f)">{{f}}</a>
+              </li>
+
+              <li class="page-item disabled" *ngIf="fragments.firstPages.length > 0">
+                <a [routerLink]="" class="page-link">...</a>
+              </li>
+
+              <li class="page-item" *ngFor="let p of fragments.previousPages">
+                <a [routerLink]="" class="page-link" (click)="loadFragments(p)">{{p}}</a>
+              </li>
+
+              <li class="page-item active">
+                <a class="page-link" [routerLink]="">{{currentFragmentsPage}}</a>
+              </li>
+
+              <li class="page-item" *ngFor="let next of fragments.nextPages">
+                <a [routerLink]="" class="page-link" (click)="loadFragments(next)">{{next}}</a>
+              </li>
+
+              <li class="page-item disabled" *ngIf="fragments.lastPages.length > 0">
+                <a [routerLink]="" class="page-link">...</a>
+              </li>
+
+              <li class="page-item" *ngFor="let l of fragments.lastPages">
+                <a [routerLink]="" class="page-link" (click)="loadFragments(l)">{{l}}</a>
+              </li>
+            </ul>
+          </nav>
         </ion-grid>
 
         <form *ngIf="isAuthenticated | async">
@@ -42,12 +74,45 @@
       <ion-list *ngIf="comments && comments.entities.length > 0">
         <ion-item *ngFor="let comment of comments.entities; let i = index">
           <ion-label>
-            {{i + 1}}
+            #{{ comment.id }}
           </ion-label>
           <ion-label>{{ comment.text }}</ion-label>
           <ion-icon color="danger" *ngIf="isAuthenticated | async" name="trash-outline" (click)="deleteComment(comment.id)"></ion-icon>
         </ion-item>
       </ion-list>
+
+      <nav>
+        <ul class="pagination">
+          <li class="page-item" *ngFor="let f of comments.firstPages">
+            <a [routerLink]="" class="page-link" (click)="loadComments(f)">{{f}}</a>
+          </li>
+
+          <li class="page-item disabled" *ngIf="comments.firstPages.length > 0">
+            <a [routerLink]="" class="page-link">...</a>
+          </li>
+
+          <li class="page-item" *ngFor="let p of comments.previousPages">
+            <a [routerLink]="" class="page-link" (click)="loadComments(p)">{{p}}</a>
+          </li>
+
+          <li class="page-item active">
+            <a class="page-link" [routerLink]="">{{currentCommentsPage}}</a>
+          </li>
+
+          <li class="page-item" *ngFor="let next of comments.nextPages">
+            <a [routerLink]="" class="page-link" (click)="loadComments(next)">{{next}}</a>
+          </li>
+
+          <li class="page-item disabled" *ngIf="comments.lastPages.length > 0">
+            <a [routerLink]="" class="page-link">...</a>
+          </li>
+
+          <li class="page-item" *ngFor="let l of comments.lastPages">
+            <a [routerLink]="" class="page-link" (click)="loadComments(l)">{{l}}</a>
+          </li>
+        </ul>
+      </nav>
+
       <hr>
       <h5>What do you think?</h5>
       <form>
@@ -61,5 +126,5 @@
   </div>
 </ion-content>
 <ion-footer>
-  <ion-button expand="block" color="lavender" (click)="goToList()">Back to stories</ion-button>
+  <ion-button expand="block" color="lavender" (click)="goToList()">Back to comments</ion-button>
 </ion-footer>
