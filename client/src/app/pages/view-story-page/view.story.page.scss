@@ -1,7 +1,12 @@
 ion-row {
-  background-color: #f1f1f1;
+  background-color: #fff;
   margin: 1%;
 }
+
+ion-card {
+  background-color: #f1f1f1;
+}
+
 
 ion-col {
   display: flex;
@@ -18,7 +23,7 @@ ion-card-title {
 }
 
 ion-card-header {
-  background-color: #f1f1f1;
+  background-color: #d4d4d4;
 }
 
 ion-card-subtitle {
