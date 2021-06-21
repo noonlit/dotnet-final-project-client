@@ -3,12 +3,12 @@ import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { AlertController, NavController } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
-import { Comment } from '../../models/comment.model';
+import { Comment, PaginatedComments } from '../../models/comment.model';
 import { Observable } from 'rxjs';
 import { switchMap } from "rxjs/operators";
 import { ActivatedRoute, Params } from "@angular/router";
 import { User } from '../../models/user.model';
-import { Fragment } from '../../models/fragment';
+import { Fragment, PaginatedFragments } from '../../models/fragment.model';
 
 @Component({
   selector: 'app-view-story',
@@ -19,10 +19,11 @@ export class ViewStoryPage {
   isAuthenticated: Observable<boolean>;
   currentUser: User;
   storyDataLoaded: boolean = false;
-  comments: Comment[];
+  comments: PaginatedComments;
   newComment = new Comment();
   newFragment = new Fragment();
   @Input() story: Story;
+  fragments: PaginatedFragments;
 
   constructor(
     private apiSvc: ApiService,
@@ -58,11 +59,11 @@ export class ViewStoryPage {
     this.route.params
       .pipe(switchMap((params: Params) => this.apiSvc.get(`api/Stories/${params['id']}`)))
       .subscribe(
-        story => {
-          this.story = story;
-          console.log(story);
-
-          this.comments = this.story.comments;
+        storyData => {
+          this.story = storyData.story;
+          this.comments = storyData.comments;
+          this.fragments = storyData.fragments;
+          console.log(storyData);
           this.storyDataLoaded = true;
           this.cd.detectChanges();
         },
@@ -102,7 +103,7 @@ export class ViewStoryPage {
   deleteComment(commentId: number) {
     this.apiSvc.delete('api/Stories/' + this.story.id + '/comments/' + commentId).subscribe(
       () => {
-        this.comments = this.comments.filter(c => c.id !== commentId),
+        this.comments.entities = this.comments.entities.filter(c => c.id !== commentId),
           this.cd.detectChanges();
       },
       (err) => {

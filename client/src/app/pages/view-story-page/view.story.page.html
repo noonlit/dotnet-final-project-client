@@ -1,6 +1,6 @@
 <app-navbar [pageName]="'Story Details'"></app-navbar>
 <ion-content>
-  <div *ngIf="storyDataLoaded">
+  <div *ngIf="story">
     <ion-card>
       <ion-card-header>
         <ion-card-title> {{ story.title }} </ion-card-title>
@@ -12,8 +12,8 @@
       </ion-card-header>
       <ion-card-content>
         <div class="ion-padding">{{ story.description }}</div>
-        <ion-grid>
-          <ion-row *ngFor="let fragment of story.fragments; let j = index">
+        <ion-grid *ngIf="fragments && fragments.entities.length > 0">
+          <ion-row *ngFor="let fragment of fragments.entities; let j = index">
             <ion-col class="fragment ion-text-left" [size]="getFragmentColumnSize()">
               {{ fragment.text }}
               <br>
@@ -39,8 +39,8 @@
     <div class="ion-padding">
       <hr>
       <h5>Comments</h5>
-      <ion-list>
-        <ion-item *ngFor="let comment of comments; let i = index">
+      <ion-list *ngIf="comments && comments.entities.length > 0">
+        <ion-item *ngFor="let comment of comments.entities; let i = index">
           <ion-label>
             {{i + 1}}
           </ion-label>

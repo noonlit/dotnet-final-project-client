@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { ApiService } from './../../services/api.service';
-import { Story } from './../../models/story.model';
+import { PaginatedStories, Story } from './../../models/story.model';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Observable } from 'rxjs';
@@ -12,7 +12,8 @@ import { Observable } from 'rxjs';
   encapsulation: ViewEncapsulation.None,
 })
 export class StoriesPage {
-  stories: Story[];
+  stories: PaginatedStories;
+  currentPage: number;
   isAuthenticated: Observable<boolean>;
 
   constructor(private apiSvc: ApiService, private router: Router, private authSvc: AuthService) { }
@@ -39,10 +40,10 @@ export class StoriesPage {
     });
   }
 
-  private loadStories() {
-    this.apiSvc.get('api/Stories').subscribe((response: Array<Story>) => {
+  private loadStories(page: number = 1) {
+    this.apiSvc.get('api/Stories', { 'page': page }).subscribe((response: PaginatedStories) => {
       this.stories = response;
-
+      this.currentPage = page;
       console.log(this.stories);
     });
   }
