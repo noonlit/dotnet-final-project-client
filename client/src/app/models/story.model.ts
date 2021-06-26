@@ -1,6 +1,7 @@
 import { Author } from "./author.model";
 import { Comment } from "./comment.model";
 import { Fragment } from "./fragment.model";
+import { Tag } from "./tag.model";
 
 export class Story {
   id?: number;
@@ -10,6 +11,7 @@ export class Story {
   fragments: Fragment[];
   comments: Comment[];
   owner: Author;
+  tags: Tag[];
   createdAt?: Date;
   isComplete: boolean = false;
 }
