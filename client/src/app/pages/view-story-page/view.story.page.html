@@ -58,12 +58,13 @@
           </nav>
         </ion-grid>
 
-        <form *ngIf="isAuthenticated | async">
+        <form *ngIf="!story.isComplete && (isAuthenticated | async)">
           <ion-item>
             <ion-label>Add a fragment:</ion-label>
             <ion-textarea type="text" [(ngModel)]="newFragment.text" name="text"></ion-textarea>
           </ion-item>
           <ion-button color="thistle" expand="block" (click)="saveFragment()">Save Fragment</ion-button>
+          <ion-button color="danger" expand="block" (click)="saveFragment(true)">Save Fragment & Mark Complete</ion-button>
         </form>
       </ion-card-content>
     </ion-card>

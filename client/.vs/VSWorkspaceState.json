@@ -11,6 +11,6 @@
     "\\src\\app\\pages\\view-story-page",
     "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\models\\story.model.ts",
+  "SelectedNode": "\\src\\app\\pages\\view-story-page\\view.story.page.scss",
   "PreviewInSolutionExplorer": false
 }

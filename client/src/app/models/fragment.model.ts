@@ -7,6 +7,7 @@ export class Fragment {
   storyId?: number;
   userId?: string;
   user?: Author
+  isLast?: boolean = false;
 }
 
 export class PaginatedFragments {

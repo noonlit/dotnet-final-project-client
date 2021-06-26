@@ -142,9 +142,10 @@ export class ViewStoryPage {
     );
   }
 
-  saveFragment() {
+  saveFragment(isLast: boolean = false) {
     this.newFragment.storyId = this.story.id;
     this.newFragment.userId = this.currentUser.id;
+    this.newFragment.isLast = isLast;
 
     this.apiSvc.post('api/Stories/' + this.story.id + '/fragments', this.newFragment)
       .subscribe(
@@ -172,7 +173,7 @@ export class ViewStoryPage {
   deleteFragment(fragmentId: number) {
     this.apiSvc.delete('api/Stories/' + this.story.id + '/fragments/' + fragmentId).subscribe(
       () => {
-        this.story.fragments = this.story.fragments.filter(f => f.id !== fragmentId);
+        this.fragments.entities = this.fragments.entities.filter(f => f.id !== fragmentId);
           this.cd.detectChanges();
       },
       (err) => {
