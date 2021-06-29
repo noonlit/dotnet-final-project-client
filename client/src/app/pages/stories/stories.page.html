@@ -16,6 +16,7 @@
         </ion-label>
         <ion-label>{{story.title}}</ion-label>
         <ion-icon name="chevron-forward-outline" (click)="viewStory(story)"></ion-icon>
+        <ion-icon name="pencil" (click)="editStory(story)"></ion-icon>
         <ion-icon *ngIf="isAuthenticated | async" color="danger" name="trash-outline" (click)="deleteStory(story)"></ion-icon>
       </ion-item>
 

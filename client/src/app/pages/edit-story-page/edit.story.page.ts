@@ -1,15 +1,18 @@
 import { Story, GENRES } from './../../models/story.model';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { AlertController, NavController } from '@ionic/angular';
 import { Tag } from '../../models/tag.model';
+import { ActivatedRoute, Params } from "@angular/router";
+import { Location } from '@angular/common';
+import { switchMap } from "rxjs/operators";
 
 @Component({
-  selector: 'app-start-story',
-  templateUrl: 'start.story.page.html',
+  selector: 'app-edit-story',
+  templateUrl: 'edit.story.page.html',
 })
-export class StartStoryPage {
-  story = new Story();
+export class EditStoryPage implements OnInit {
+  story: Story;
   GENRES = GENRES;
   tags;
 
@@ -17,10 +20,26 @@ export class StartStoryPage {
     private apiSvc: ApiService,
     private navCtrl: NavController,
     private alertCtrl: AlertController,
+    private route: ActivatedRoute,
+    private cd: ChangeDetectorRef
   ) { }
 
   ionViewWillEnter() {
+
+  }
+
+  ngOnInit() {
+    this.loadStory();
     this.loadTags();
+  }
+
+  loadStory() {
+    this.route.params
+      .pipe(switchMap((params: Params) => this.apiSvc.get('api/Stories/' + params['id'])))
+      .subscribe(response => {
+        this.story = response.story;
+        this.cd.detectChanges();
+      });
   }
 
   loadTags() {
@@ -28,7 +47,6 @@ export class StartStoryPage {
       .subscribe(
         tags => {
           this.tags = tags;
-          console.log(tags);
         },
         (err) => {
           console.log(err);
@@ -36,9 +54,7 @@ export class StartStoryPage {
   }
 
   saveStory() {
-    this.story.createdAt = new Date();
-
-    this.apiSvc.post('api/Stories', this.story).subscribe(
+    this.apiSvc.put('api/Stories/' + this.story.id, this.story).subscribe(
       () => {
         this.navCtrl.pop();
       },
@@ -69,9 +85,5 @@ export class StartStoryPage {
     }
 
     return o1.id === o2.id;
-  }
-
-  goToList() {
-    this.navCtrl.navigateBack('/stories');
   }
 }

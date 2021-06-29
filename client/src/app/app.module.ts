@@ -16,6 +16,7 @@ import { AuthService } from './services/auth.service';
 import { ViewStoryPage } from './pages/view-story-page/view.story.page';
 import { StartStoryPage } from './pages/start-story-page/start.story.page';
 import { TokenInterceptor } from './interceptors/auth.token.interceptor';
+import { EditStoryPage } from './pages/edit-story-page/edit.story.page';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TokenInterceptor } from './interceptors/auth.token.interceptor';
     StoriesPage,
     LoginPage,
     ViewStoryPage,
-    StartStoryPage
+    StartStoryPage,
+    EditStoryPage
   ],
   entryComponents: [],
   imports: [

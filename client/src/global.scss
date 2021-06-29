@@ -58,6 +58,11 @@
   --ion-color-tint: var(--ion-color-thistle-tint);
 }
 
+.item-input .sc-ion-label-md-h {
+  max-width: 250px;
+}
+
+
 .pagination {
   display: flex;
   padding-left: 0;

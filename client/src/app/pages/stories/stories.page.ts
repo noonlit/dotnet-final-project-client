@@ -32,6 +32,10 @@ export class StoriesPage {
     this.router.navigate(['/story/view', story.id]);
   }
 
+  editStory(story: Story) {
+    this.router.navigate(['/story/edit', story.id]);
+  }
+
   deleteStory(story: Story) {
     this.apiSvc.delete(`api/Stories/${story.id}`).subscribe(() => {
       this.loadStories();

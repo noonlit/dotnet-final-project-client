@@ -4,6 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginPage } from './pages/login/login.page';
 import { ViewStoryPage } from './pages/view-story-page/view.story.page';
 import { StartStoryPage } from './pages/start-story-page/start.story.page';
+import { EditStoryPage } from './pages/edit-story-page/edit.story.page';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'story/view/:id',
     component: ViewStoryPage,
+  },
+  {
+    path: 'story/edit/:id',
+    component: EditStoryPage,
   },
   {
     path: '',

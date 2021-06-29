@@ -14,6 +14,7 @@ export class Story {
   tags: Tag[];
   createdAt?: Date;
   isComplete: boolean = false;
+  additionalTags?: string;
 }
 
 export enum Genre {
