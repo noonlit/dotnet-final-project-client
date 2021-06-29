@@ -75,15 +75,7 @@ export class EditStoryPage implements OnInit {
     );
   }
 
-  compareWith(o1: Tag, o2: Tag | Tag[]) {
-    if (!o1 || !o2) {
-      return o1 === o2;
-    }
-
-    if (Array.isArray(o2)) {
-      return o2.some((u: Tag) => u.id === o1.id);
-    }
-
-    return o1.id === o2.id;
+  goToList() {
+    this.navCtrl.navigateBack('/stories');
   }
 }

@@ -21,16 +21,6 @@
           </ion-select-option>
         </ion-select>
       </ion-item>
-      <ion-item>
-        <ion-label>Tags</ion-label>
-        <ion-select multiple [compareWith]="compareWith"
-                  [(ngModel)]="story.tags"  name="tags">
-          <ion-select-option *ngFor="let tag of tags"
-                             [value]="tag">
-            {{tag.name}}
-          </ion-select-option>
-        </ion-select>
-      </ion-item>
     </form>
   </div>
 </ion-content>
