@@ -1,0 +1,17 @@
+<app-navbar [pageName]="'Tags'"></app-navbar>
+
+<ion-content>
+  <br>
+  <br>
+  <ion-card justify-content-center>
+    <ion-card-header>
+      <ion-card-subtitle>Popular tags</ion-card-subtitle>
+      <ion-card-title>Count of stories using the top 5 tags</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barChart></canvas>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer></ion-footer>

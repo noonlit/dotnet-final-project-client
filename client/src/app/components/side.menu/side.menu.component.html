@@ -13,6 +13,9 @@
           <ion-item [routerLink]="'/tags'">Tags</ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle auto-hide="true">
+          <ion-item [routerLink]="'/tags-stats'">Tags Statistics</ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
           <ion-item *ngIf="!(isAuthenticated | async)" [routerLink]="'/login'">Log in</ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle auto-hide="true">

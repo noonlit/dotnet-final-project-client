@@ -8,6 +8,7 @@ import { EditStoryPage } from './pages/edit-story-page/edit.story.page';
 import { TagsPage } from './pages/tags/tags.page';
 import { EditTagPage } from './pages/edit-tag-page/edit.tag.page';
 import { CreateTagPage } from './pages/create-tag-page/create.tag.page';
+import { TagsStatsPage } from './pages/tags-stats-page/tags-stats.page';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'tag/edit/:id',
     component: EditTagPage,
+  },
+  {
+    path: 'tags-stats',
+    component: TagsStatsPage
   },
   {
     path: '',

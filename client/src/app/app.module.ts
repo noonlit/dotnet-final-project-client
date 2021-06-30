@@ -20,6 +20,8 @@ import { EditStoryPage } from './pages/edit-story-page/edit.story.page';
 import { TagsPage } from './pages/tags/tags.page';
 import { EditTagPage } from './pages/edit-tag-page/edit.tag.page';
 import { CreateTagPage } from './pages/create-tag-page/create.tag.page';
+import { ChartsModule, ThemeService } from 'ng2-charts';
+import { TagsStatsPage } from './pages/tags-stats-page/tags-stats.page';
 
 @NgModule({
   declarations: [
@@ -35,10 +37,12 @@ import { CreateTagPage } from './pages/create-tag-page/create.tag.page';
     EditStoryPage,
     TagsPage,
     EditTagPage,
-    CreateTagPage
+    CreateTagPage,
+    TagsStatsPage
   ],
   entryComponents: [],
   imports: [
+    ChartsModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
@@ -53,7 +57,8 @@ import { CreateTagPage } from './pages/create-tag-page/create.tag.page';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true,
-    }
+    },
+    ThemeService
   ],
   bootstrap: [AppComponent],
 })
