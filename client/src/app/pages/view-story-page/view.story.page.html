@@ -10,8 +10,17 @@
           Genre: {{ story.genre }}
           <br>
           <br>
-          <ion-toolbar class="tags">
-            <button *ngFor="let t of story.tags" class="tag">{{ t.name }} <ion-icon name="close" (click)="removeTag(t.id)"></ion-icon></button>
+          <ion-toolbar>
+            <ion-item>
+              <ion-label>Tags</ion-label>
+              <ion-select multiple [compareWith]="compareWith" (ionChange)="updateTags($event)"
+                          [(ngModel)]="story.tags" name="tags">
+                <ion-select-option *ngFor="let tag of tags"
+                                   [value]="tag">
+                  {{tag.name}}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
           </ion-toolbar>
         </ion-card-subtitle>
       </ion-card-header>

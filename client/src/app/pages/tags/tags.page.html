@@ -1,0 +1,19 @@
+<app-navbar [pageName]="'Tags'"></app-navbar>
+<ion-content>
+
+  <ion-list *ngIf="tags">
+    <div *ngFor="let tag of tags">
+      <ion-item>
+        <ion-label>
+          {{tag.id}}
+        </ion-label>
+        <ion-label>{{tag.name}}</ion-label>
+        <ion-icon *ngIf="isAuthenticated | async" name="pencil" (click)="editTag(tag)"></ion-icon>
+        <ion-icon *ngIf="isAuthenticated | async" color="danger" name="trash-outline" (click)="deleteTag(tag)"></ion-icon>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" color="thistle" (click)="createTag()">Create tag</ion-button>
+</ion-footer>

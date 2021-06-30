@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\client",
+    "\\client\\src",
+    "\\client\\src\\app",
+    "\\client\\src\\app\\pages",
+    "\\client\\src\\app\\pages\\create-tag-page",
+    "\\client\\src\\app\\pages\\edit-story-page",
+    "\\client\\src\\app\\pages\\edit-tag-page",
+    "\\client\\src\\app\\pages\\start-story-page",
+    "\\client\\src\\app\\pages\\tags"
+  ],
+  "SelectedNode": "\\client\\src\\app\\pages\\tags\\tags.page.ts",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,15 @@
+<app-navbar [pageName]="'Tag Details'"></app-navbar>
+<ion-content *ngIf="tag">
+  <div>
+    <form>
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="tag.name" name="name"></ion-input>
+      </ion-item>
+    </form>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" color="thistle" (click)="saveTag()">Save</ion-button>
+  <ion-button expand="block" color="lavender" (click)="goToList()">Back to tags</ion-button>
+</ion-footer>

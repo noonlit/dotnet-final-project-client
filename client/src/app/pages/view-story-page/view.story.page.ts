@@ -9,6 +9,7 @@ import { switchMap } from "rxjs/operators";
 import { ActivatedRoute, Params } from "@angular/router";
 import { User } from '../../models/user.model';
 import { Fragment, PaginatedFragments } from '../../models/fragment.model';
+import { Tag } from '../../models/tag.model';
 
 @Component({
   selector: 'app-view-story',
@@ -26,6 +27,7 @@ export class ViewStoryPage {
   fragments: PaginatedFragments;
   currentFragmentsPage: number;
   currentCommentsPage: number;
+  tags;
 
   constructor(
     private apiSvc: ApiService,
@@ -55,6 +57,7 @@ export class ViewStoryPage {
     );
 
     this.loadStory();
+    this.loadTags();
   }
 
   loadStory() {
@@ -74,6 +77,45 @@ export class ViewStoryPage {
           console.log(err);
         }
     );
+  }
+
+  loadTags() {
+    this.apiSvc.get('api/Stories/Tags')
+      .subscribe(
+        tags => {
+          this.tags = tags;
+          console.log(tags);
+        },
+        (err) => {
+          console.log(err);
+        });
+  }
+
+  updateTags() {
+    this.apiSvc.put('api/Stories/' + this.story.id, this.story)
+      .subscribe(
+        response => {
+          console.log(response);
+        },
+        (err) => {
+          console.log(err);
+        });
+  }
+
+  onSelectChange(selectedValue: any) {
+    console.log('Selected', selectedValue);
+  }
+
+  compareWith(o1: Tag, o2: Tag | Tag[]) {
+    if (!o1 || !o2) {
+      return o1 === o2;
+    }
+
+    if (Array.isArray(o2)) {
+      return o2.some((u: Tag) => u.id === o1.id);
+    }
+
+    return o1.id === o2.id;
   }
 
   loadFragments(page: number = 1) {

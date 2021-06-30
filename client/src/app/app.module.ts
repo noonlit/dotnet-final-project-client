@@ -17,6 +17,9 @@ import { ViewStoryPage } from './pages/view-story-page/view.story.page';
 import { StartStoryPage } from './pages/start-story-page/start.story.page';
 import { TokenInterceptor } from './interceptors/auth.token.interceptor';
 import { EditStoryPage } from './pages/edit-story-page/edit.story.page';
+import { TagsPage } from './pages/tags/tags.page';
+import { EditTagPage } from './pages/edit-tag-page/edit.tag.page';
+import { CreateTagPage } from './pages/create-tag-page/create.tag.page';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { EditStoryPage } from './pages/edit-story-page/edit.story.page';
     LoginPage,
     ViewStoryPage,
     StartStoryPage,
-    EditStoryPage
+    EditStoryPage,
+    TagsPage,
+    EditTagPage,
+    CreateTagPage
   ],
   entryComponents: [],
   imports: [
