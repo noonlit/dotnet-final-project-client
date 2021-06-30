@@ -136,7 +136,7 @@ export class ViewStoryPage {
 
   saveComment() {
     this.newComment.storyId = this.story.id;
-    this.newComment.userId = this.currentUser.id;
+    this.newComment.userId = this.currentUser ? this.currentUser.id : null;
 
     this.apiSvc.post('api/Stories/' + this.story.id + '/comments', this.newComment)
       .subscribe(
