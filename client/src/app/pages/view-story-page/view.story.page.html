@@ -5,9 +5,14 @@
       <ion-card-header>
         <ion-card-title> {{ story.title }} </ion-card-title>
         <ion-card-subtitle>
-          Owner: {{ story.owner.email }}
+          By: {{ story.owner.email }}
           <br>
           Genre: {{ story.genre }}
+          <br>
+          <br>
+          <ion-toolbar class="tags">
+            <button *ngFor="let t of story.tags" class="tag">{{ t.name }} <ion-icon name="close" (click)="removeTag(t.id)"></ion-icon></button>
+          </ion-toolbar>
         </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>

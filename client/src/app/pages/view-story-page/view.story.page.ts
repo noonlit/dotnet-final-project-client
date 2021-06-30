@@ -193,6 +193,30 @@ export class ViewStoryPage {
     );
   }
 
+  removeTag(tagId: number) {
+
+    this.apiSvc.delete('api/Stories/' + this.story.id + '/tags/' + tagId).subscribe(
+      () => {
+        this.story.tags = this.story.tags.filter(f => f.id !== tagId);
+        this.cd.detectChanges();
+      },
+      (err) => {
+        let message = 'Error';
+        const errorsArray = err?.error?.errors;
+        if (errorsArray) {
+          message = Object.values(errorsArray)[0] as string;
+        }
+        this.alertCtrl
+          .create({
+            header: 'Error',
+            message: message,
+            buttons: ['Ok'],
+          })
+          .then((al) => al.present());
+      }
+    );
+  }
+
   getFragmentColumnSize()
   {
     return this.isAuthenticated ? 11 : 12;
