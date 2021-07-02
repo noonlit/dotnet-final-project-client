@@ -10,10 +10,7 @@
   <ion-list *ngIf="stories">
     <div *ngFor="let story of stories.entities; let i = index">
       <ion-item>
-        <ion-label>
-          {{i + 1}}
-        </ion-label>
-        <ion-label>{{story.title}}</ion-label>
+        <ion-label>#{{ story.id }}. {{story.title}} ({{story.genre}})</ion-label>
         <ion-icon name="chevron-forward-outline" (click)="viewStory(story)"></ion-icon>
         <ion-icon *ngIf="isAuthenticated | async" name="pencil" (click)="editStory(story)"></ion-icon>
         <ion-icon *ngIf="isAuthenticated | async" color="danger" name="trash-outline" (click)="deleteStory(story)"></ion-icon>
@@ -58,5 +55,5 @@
     </ul>
   </nav>
 
-  <ion-button expand="block" color="thistle" (click)="startStory()">Start new story</ion-button>
+  <ion-button expand="block" color="thistle" *ngIf="isAuthenticated | async" (click)="startStory()">Start new story</ion-button>
 </ion-footer>

@@ -140,9 +140,9 @@
       <form>
         <ion-item>
           <ion-label>Comment:</ion-label>
-          <ion-textarea type="text" [(ngModel)]="newComment.text" name="text"></ion-textarea>
+          <ion-textarea id="newComment" type="text" [(ngModel)]="newComment.text" name="text"></ion-textarea>
         </ion-item>
-        <ion-button color="thistle" expand="block" (click)="saveComment()">Save Comment</ion-button>
+        <ion-button id="saveNewComment" color="thistle" expand="block" (click)="saveComment()">Save Comment</ion-button>
       </form>
     </div>
   </div>
