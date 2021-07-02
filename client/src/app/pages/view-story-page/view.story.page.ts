@@ -6,7 +6,7 @@ import { AuthService } from '../../services/auth.service';
 import { Comment, PaginatedComments } from '../../models/comment.model';
 import { Observable } from 'rxjs';
 import { switchMap } from "rxjs/operators";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { User } from '../../models/user.model';
 import { Fragment, PaginatedFragments } from '../../models/fragment.model';
 import { Tag } from '../../models/tag.model';
@@ -36,6 +36,7 @@ export class ViewStoryPage {
     private authSvc: AuthService,
     private cd: ChangeDetectorRef,
     private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -266,6 +267,14 @@ export class ViewStoryPage {
 
   getFragmentActionsColumnSize() {
     return this.isAuthenticated ? 1 : 0;
+  }
+
+  editFragment(fragmentId: number) {
+    this.router.navigate(['/fragment/edit', fragmentId]);
+  }
+
+  editComment(commentId: number) {
+    this.router.navigate(['/comment/edit', commentId]);
   }
 
   goToList() {

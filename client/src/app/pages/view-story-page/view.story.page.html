@@ -34,12 +34,13 @@
         <ion-grid *ngIf="fragments && fragments.entities.length > 0">
           <ion-row *ngFor="let fragment of fragments.entities; let j = index">
             <ion-col class="fragment ion-text-left" [size]="getFragmentColumnSize()">
-              {{ fragment.text }}
+              #{{ fragment.position }}. {{ fragment.text }}
               <br>
               <br>
               -- {{ fragment.user.email }}
             </ion-col>
             <ion-col class="actions ion-justify-content-center" *ngIf="isAuthenticated | async" [size]="getFragmentActionsColumnSize()">
+              <ion-icon name="pencil" (click)="editFragment(fragment.id)"></ion-icon>
               <ion-icon color="danger" name="trash-outline" (click)="deleteFragment(fragment.id)"></ion-icon>
             </ion-col>
           </ion-row>
@@ -97,6 +98,7 @@
             #{{ comment.id }}
           </ion-label>
           <ion-label>{{ comment.text }}</ion-label>
+          <ion-icon name="pencil" *ngIf="isAuthenticated | async" (click)="editComment(comment.id)"></ion-icon>
           <ion-icon color="danger" *ngIf="isAuthenticated | async" name="trash-outline" (click)="deleteComment(comment.id)"></ion-icon>
         </ion-item>
       </ion-list>

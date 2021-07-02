@@ -9,6 +9,8 @@ import { TagsPage } from './pages/tags/tags.page';
 import { EditTagPage } from './pages/edit-tag-page/edit.tag.page';
 import { CreateTagPage } from './pages/create-tag-page/create.tag.page';
 import { TagsStatsPage } from './pages/tags-stats-page/tags-stats.page';
+import { EditFragmentPage } from './pages/edit-fragment-page/edit.fragment.page';
+import { EditCommentPage } from './pages/edit-comment-page/edit.comment.page';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
   {
     path: 'story/edit/:id',
     component: EditStoryPage,
+  },
+  {
+    path: 'fragment/edit/:id',
+    component: EditFragmentPage
+  },
+  {
+    path: 'comment/edit/:id',
+    component: EditCommentPage
   },
   {
     path: 'tags',

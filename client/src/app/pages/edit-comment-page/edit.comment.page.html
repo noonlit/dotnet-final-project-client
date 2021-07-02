@@ -1,0 +1,15 @@
+<app-navbar [pageName]="'Comment Details'"></app-navbar>
+<ion-content *ngIf="comment">
+  <div>
+    <form>
+      <ion-item>
+        <ion-label>Text</ion-label>
+        <ion-textarea type="text" [(ngModel)]="comment.text" name="text"></ion-textarea>
+      </ion-item>
+    </form>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" color="thistle" (click)="saveComment()">Save</ion-button>
+  <ion-button expand="block" color="lavender" (click)="goToStory()">Back to story</ion-button>
+</ion-footer>

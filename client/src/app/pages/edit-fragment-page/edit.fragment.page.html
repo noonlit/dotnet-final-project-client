@@ -1,0 +1,19 @@
+<app-navbar [pageName]="'Fragment Details'"></app-navbar>
+<ion-content *ngIf="fragment">
+  <div>
+    <form>
+      <ion-item>
+        <ion-label>Text</ion-label>
+        <ion-textarea type="text" [(ngModel)]="fragment.text" name="text"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Position</ion-label>
+        <ion-input type="number" [(ngModel)]="fragment.position" name="position"></ion-input>
+      </ion-item>
+    </form>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" color="thistle" (click)="saveFragment()">Save</ion-button>
+  <ion-button expand="block" color="lavender" (click)="goToStory()">Back to story</ion-button>
+</ion-footer>

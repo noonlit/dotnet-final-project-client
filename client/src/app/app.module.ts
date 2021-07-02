@@ -22,6 +22,8 @@ import { EditTagPage } from './pages/edit-tag-page/edit.tag.page';
 import { CreateTagPage } from './pages/create-tag-page/create.tag.page';
 import { ChartsModule, ThemeService } from 'ng2-charts';
 import { TagsStatsPage } from './pages/tags-stats-page/tags-stats.page';
+import { EditFragmentPage } from './pages/edit-fragment-page/edit.fragment.page';
+import { EditCommentPage } from './pages/edit-comment-page/edit.comment.page';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { TagsStatsPage } from './pages/tags-stats-page/tags-stats.page';
     TagsPage,
     EditTagPage,
     CreateTagPage,
-    TagsStatsPage
+    TagsStatsPage,
+    EditFragmentPage,
+    EditCommentPage
   ],
   entryComponents: [],
   imports: [
