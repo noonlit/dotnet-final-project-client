@@ -35,20 +35,14 @@ namespace tests
         }
 
         [Test]
-        public void UsersCanAddStoryComments()
+        public void AddStoryCommentButtonIsPresent()
         {
             _driver.Url = "http://localhost:4200/stories";
 
             var wait = new OpenQA.Selenium.Support.UI.WebDriverWait(_driver, TimeSpan.FromSeconds(10));
             IWebElement detailsLink = wait.Until(drv => drv.FindElement(By.XPath("//ion-icon[@name='chevron-forward-outline']")));
             detailsLink.Click();
-
-            IWebElement comment = wait.Until(drv => drv.FindElement(By.CssSelector("#newComment")));
-            comment.Click();
-            comment.SendKeys("A new comment");
-            IWebElement button = wait.Until(drv => drv.FindElement(By.CssSelector("#newCommentSave")));
-            button.Click();
-
+            IWebElement button = wait.Until(drv => drv.FindElement(By.CssSelector("#saveNewComment")));
             Assert.Pass();
         }
 
@@ -69,6 +63,8 @@ namespace tests
 
             IWebElement detailsLink = wait.Until(drv => drv.FindElement(By.XPath("//ion-icon[@name='pencil']")));
             detailsLink.Click();
+
+            IWebElement title = wait.Until(drv => drv.FindElement(By.XPath("//app-edit-story")));
 
             Assert.Pass();
         }

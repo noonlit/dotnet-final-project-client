@@ -5,12 +5,12 @@
     "\\client\\src",
     "\\client\\src\\app",
     "\\client\\src\\app\\pages",
-    "\\client\\src\\app\\pages\\create-tag-page",
     "\\client\\src\\app\\pages\\edit-story-page",
-    "\\client\\src\\app\\pages\\edit-tag-page",
-    "\\client\\src\\app\\pages\\start-story-page",
-    "\\client\\src\\app\\pages\\tags"
+    "\\client\\src\\app\\pages\\login",
+    "\\client\\src\\app\\pages\\stories",
+    "\\tests",
+    "\\tests\\bin"
   ],
-  "SelectedNode": "\\client\\src\\app\\pages\\tags\\tags.page.ts",
+  "SelectedNode": "\\client\\src\\app\\pages\\stories\\stories.page.scss",
   "PreviewInSolutionExplorer": false
 }
